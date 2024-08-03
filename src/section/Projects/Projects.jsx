@@ -21,13 +21,13 @@ const Projects = () => {
             h3="game"
             p="chess bord App"
           />
-          <ProjectCard
+          {/* <ProjectCard
             src={freshBurger}
             link="https://yabase.thisaitech.com"
             h3="game"
             p="chess App"
           />
-        </div>
+        </div> */}
       </section>
     </>
   );
