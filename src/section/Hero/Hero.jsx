@@ -51,7 +51,7 @@ function Hero() {
             <img src={twitterIcon} alt="Twitter icon" />
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/yabase001"
             target="_blank"
             rel="noopener noreferrer"
           >
