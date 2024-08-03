@@ -26,8 +26,8 @@ const Projects = () => {
             link="https://yabase.thisaitech.com"
             h3="game"
             p="chess App"
-          />
-        </div> */}
+          /> */}
+        </div>
       </section>
     </>
   );
