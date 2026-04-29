@@ -41,9 +41,9 @@ function Contact() {
         {/* Left — contact info */}
         <div className={styles.info}>
           <h3 className={styles.infoTitle}>Reach me at</h3>
-          <a href="mailto:chelladurai@example.com" className={styles.infoLink}>
+          <a href="mailto:yabase.dev@gmail.com" className={styles.infoLink}>
             <span className={styles.infoIcon}>✉</span>
-            chelladuraisub@gmail.com
+            yabase.dev@gmail.com
           </a>
           <a
             href="https://www.linkedin.com/in/chelladurai-yabase-a-8a5037257"
