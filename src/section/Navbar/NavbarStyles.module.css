@@ -1,0 +1,202 @@
+/* ---- Header shell ---- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 24px;
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrolled {
+  background: var(--bg-secondary);
+  padding: 10px 24px;
+  box-shadow: 0 2px 20px rgba(108, 99, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+/* ---- Nav row ---- */
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- Logo ---- */
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover { opacity: 0.75; }
+
+.logoAccent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Desktop links ---- */
+.links {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 36px;
+}
+
+@media (width >= 768px) {
+  .links { display: flex; }
+}
+
+.link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.link:hover { color: var(--text-primary); }
+.link:hover::after { width: 100%; }
+
+/* Active section link */
+.activeLink {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.activeLink::after {
+  width: 100% !important;
+}
+
+/* ---- Right controls ---- */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---- Theme Button ---- */
+.themeBtn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.themeBtn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+  transform: translateY(-2px) rotate(15deg);
+}
+
+/* ---- Hamburger ---- */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+@media (width >= 768px) {
+  .hamburger { display: none; }
+}
+
+.hamburger:hover { background: var(--border); }
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Mobile drawer ---- */
+.drawer {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+
+.drawerOpen {
+  max-height: 400px;
+  padding: 16px 24px;
+}
+
+@media (width >= 768px) {
+  .drawer { display: none; }
+}
+
+.drawerLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s ease;
+}
+
+.drawerLink:last-child { border-bottom: none; }
+.drawerLink:hover { color: var(--accent); }
+
+.drawerActive {
+  color: var(--accent);
+  font-weight: 600;
+}

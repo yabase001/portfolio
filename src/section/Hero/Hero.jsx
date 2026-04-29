@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./HeroStyles.module.css";
 import heroImg from "../../assets/yabase.png";
-import sun from "../../assets/sun.svg";
-import moon from "../../assets/moon.svg";
 import twitterLight from "../../assets/twitter-light.svg";
 import twitterDark from "../../assets/twitter-dark.svg";
 import githubLight from "../../assets/github-light.svg";
@@ -13,66 +11,79 @@ import CV from "../../assets/cv.pdf";
 import { useTheme } from "../../commom/ThemeContext";
 
 function Hero() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
-  const themeIcon = theme === "light" ? sun : moon;
   const twitterIcon = theme === "light" ? twitterLight : twitterDark;
-  const githubIcon = theme === "light" ? githubLight : githubDark;
-  const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
+  const githubIcon  = theme === "light" ? githubLight  : githubDark;
+  const linkedinIcon= theme === "light" ? linkedinLight: linkedinDark;
+
+  const scrollToAbout = () => {
+    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section id="hero" className={styles.container}>
-      <div className={styles.colorModeContainer}>
-        <img
-          className={styles.hero}
-          src={heroImg}
-          alt="Profile of Chelladurai Yabase"
-        />
-        <img
-          className={styles.colorMode}
-          src={themeIcon}
-          alt="Color mode icon"
-          onClick={toggleTheme}
-        />
-      </div>
+      {/* Profile image */}
+      <img
+        className={styles.hero}
+        src={heroImg}
+        alt="Profile of Chelladurai Yabase"
+      />
+
+      {/* Info block */}
       <div className={styles.info}>
         <h1>
           Chelladurai
           <br />
           Yabase
         </h1>
-        <h2>Frontend Developer</h2>
-        <span>
+        <h2>Full Stack Developer</h2>
+
+        {/* Social icons */}
+        <span className={styles.socials}>
           <a
             href="https://x.com/Yabase7"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Twitter"
           >
-            <img src={twitterIcon} alt="Twitter icon" />
+            <img src={twitterIcon} alt="Twitter" />
           </a>
           <a
             href="https://github.com/yabase001"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
           >
-            <img src={githubIcon} alt="Github icon" />
+            <img src={githubIcon} alt="GitHub" />
           </a>
           <a
-            href="www.linkedin.com/in/chelladurai-yabase-a-8a5037257"
+            href="https://www.linkedin.com/in/chelladurai-yabase-a-8a5037257"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
-            <img src={linkedinIcon} alt="Linkedin icon" />
+            <img src={linkedinIcon} alt="LinkedIn" />
           </a>
         </span>
+
         <p className={styles.description}>
-          Passionate about developing modern React web apps for commercial
-          businesses.
+          Building modern web, mobile &amp; desktop apps with React, Node.js,
+          Electron and Capacitor.
         </p>
-        <a href={CV} download>
-          <button className="hover">Resume</button>
+
+        <a href={CV} download className="btn">
+          ↓ Download Resume
         </a>
       </div>
+
+      {/* Scroll hint */}
+      <button className={styles.scrollHint} onClick={scrollToAbout} aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+        scroll
+      </button>
     </section>
   );
 }

@@ -1,41 +1,92 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-
-    img{
-        max-width: 250px;
-        align-self: center;
-        background-color: var(--project-card-bg);
-        border-radius: 20px;
-    }
-
-    a{
-        width: fit-content;
-        text-decoration: none;
-        color: #222;
-        transition: transform 200ms ease-in-out;
-    }
-
-
-    a:hover{
-        transform: scale(1.05);
-    }
-
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
 }
 
-.projectsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-   }
+.header { margin-bottom: 0; }
 
-@media (width >= 800px) {
-    .projectsContainer{
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 0 30px;
-    }
+/* ---- Projects grid ---- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  width: 100%;
+  max-width: 960px;
+}
+
+@media (width >= 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Card ---- */
+.card {
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Image wrapper with hover overlay ---- */
+.imgWrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  aspect-ratio: 16 / 9;
+  background: var(--border);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .img { transform: scale(1.05); }
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 26, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.card:hover .imgOverlay { opacity: 1; }
+
+/* ---- Details ---- */
+.details {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
 }
